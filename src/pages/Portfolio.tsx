@@ -11,20 +11,19 @@ export default function Portfolio() {
       liveUrl: 'https://rails-manajob-c8d805ed6220.herokuapp.com/',
     },
     {
-      title: 'Task Management App',
+      title: 'I Task',
       description: 'A collaborative task management tool with real-time updates',
       image: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&q=80',
-      technologies: ['React', 'Firebase', 'Tailwind CSS'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
+      technologies: ['Ruby on Rails', 'Javascript', 'Tailwind CSS'],
+      githubUrl: 'https://github.com/AnasBhr1/rails-iTask-me',
     },
     {
-      title: 'Weather Dashboard',
-      description: 'A weather forecasting application with interactive maps',
+      title: 'Blogger App',
+      description: 'A Blogger App with authentication and authorization',
       image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&q=80',
-      technologies: ['React', 'OpenWeather API', 'Chart.js'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
+      technologies: ['React', 'Express.js', 'MongoDB'],
+      githubUrl: 'https://github.com/AnasBhr1/BloggerAppBackend',
+      liveUrl: 'https://blog-app-front-red.vercel.app/',
     },
   ];
 

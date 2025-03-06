@@ -1,24 +1,6 @@
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import { useState } from 'react';
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
   return (
     <div className="min-h-[calc(100vh-4rem)] bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -54,7 +36,12 @@ export default function Contact() {
             </div>
           </div>
           <div className="slide-in">
-            <form onSubmit={handleSubmit} className="bg-gray-800 p-8 rounded-lg shadow-lg">
+            <form
+              action="https://formcarry.com/s/fYv_jwfr-vF"
+              method="POST"
+              encType="multipart/form-data"
+              className="bg-gray-800 p-12 rounded-lg shadow-lg"
+            >
               <div className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300">
@@ -64,10 +51,8 @@ export default function Contact() {
                     type="text"
                     id="name"
                     name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="mt-1 block w-full rounded-md bg-gray-700 border-gray-600 text-white focus:border-purple-500 focus:ring-purple-500 transition-colors"
                     required
+                    className="mt-1 block w-full rounded-md bg-gray-700 border-gray-600 text-white focus:border-purple-500 focus:ring-purple-500 transition-colors"
                   />
                 </div>
                 <div>
@@ -78,10 +63,8 @@ export default function Contact() {
                     type="email"
                     id="email"
                     name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="mt-1 block w-full rounded-md bg-gray-700 border-gray-600 text-white focus:border-purple-500 focus:ring-purple-500 transition-colors"
                     required
+                    className="mt-1 block w-full rounded-md bg-gray-700 border-gray-600 text-white focus:border-purple-500 focus:ring-purple-500 transition-colors"
                   />
                 </div>
                 <div>
@@ -91,11 +74,9 @@ export default function Contact() {
                   <textarea
                     id="message"
                     name="message"
-                    value={formData.message}
-                    onChange={handleChange}
                     rows={4}
-                    className="mt-1 block w-full rounded-md bg-gray-700 border-gray-600 text-white focus:border-purple-500 focus:ring-purple-500 transition-colors"
                     required
+                    className="mt-1 block w-full rounded-md bg-gray-700 border-gray-600 text-white focus:border-purple-500 focus:ring-purple-500 transition-colors"
                   />
                 </div>
                 <button
