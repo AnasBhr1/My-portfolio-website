@@ -1,9 +1,6 @@
 import { ExternalLink, Github, Star, Clock, Users, Code } from 'lucide-react';
-import { useState } from 'react';
 
 export default function Portfolio() {
-  const [filter, setFilter] = useState('all');
-
   const projects = [
     {
       title: 'Manajob',
@@ -13,7 +10,6 @@ export default function Portfolio() {
       technologies: ['Ruby on Rails', 'JavaScript', 'PostgreSQL', 'Heroku', 'Bootstrap'],
       githubUrl: 'https://github.com/AnasBhr1/rails-manajob',
       liveUrl: 'https://rails-manajob-c8d805ed6220.herokuapp.com/',
-      category: 'fullstack',
       featured: true,
       stats: { users: '500+', uptime: '99.9%', performance: 'A+' }
     },
@@ -24,7 +20,6 @@ export default function Portfolio() {
       image: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&q=80',
       technologies: ['Ruby on Rails', 'JavaScript', 'Tailwind CSS', 'WebSocket', 'Redis'],
       githubUrl: 'https://github.com/AnasBhr1/rails-iTask-me',
-      category: 'fullstack',
       featured: false,
       stats: { tasks: '10k+', teams: '50+', efficiency: '+40%' }
     },
@@ -36,20 +31,10 @@ export default function Portfolio() {
       technologies: ['React', 'Express.js', 'MongoDB', 'Node.js', 'JWT'],
       githubUrl: 'https://github.com/AnasBhr1/BloggerAppBackend',
       liveUrl: 'https://blog-app-front-red.vercel.app/',
-      category: 'frontend',
       featured: true,
       stats: { posts: '1k+', views: '50k+', engagement: '+85%' }
     },
   ];
-
-  const categories = [
-    { id: 'all', name: 'All Projects', count: projects.length },
-    { id: 'fullstack', name: 'Full Stack', count: projects.filter(p => p.category === 'fullstack').length },
-    { id: 'frontend', name: 'Frontend', count: projects.filter(p => p.category === 'frontend').length },
-    { id: 'backend', name: 'Backend', count: projects.filter(p => p.category === 'backend').length },
-  ];
-
-  const filteredProjects = filter === 'all' ? projects : projects.filter(p => p.category === filter);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900/10 to-gray-800 pt-20">
@@ -61,42 +46,19 @@ export default function Portfolio() {
           </h1>
           <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto mb-8"></div>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Showcasing innovative solutions and creative implementations across various technologies
+            Showcasing innovative full-stack solutions and creative implementations across various technologies
           </p>
-        </div>
-
-        {/* Filter Tabs */}
-        <div className="flex justify-center mb-12 slide-up">
-          <div className="glass-card p-2 rounded-2xl">
-            <div className="flex space-x-2">
-              {categories.map((category) => (
-                <button
-                  key={category.id}
-                  onClick={() => setFilter(category.id)}
-                  className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 relative ${
-                    filter === category.id
-                      ? 'text-white bg-gradient-to-r from-purple-600 to-cyan-600 shadow-lg shadow-purple-500/25'
-                      : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
-                  }`}
-                >
-                  {category.name}
-                  <span className={`ml-2 text-xs px-2 py-1 rounded-full ${
-                    filter === category.id ? 'bg-white/20' : 'bg-gray-700'
-                  }`}>
-                    {category.count}
-                  </span>
-                  {filter === category.id && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-cyan-600 rounded-xl blur-md opacity-50 -z-10"></div>
-                  )}
-                </button>
-              ))}
-            </div>
+          
+          {/* Project count badge */}
+          <div className="inline-flex items-center space-x-2 mt-6 glass-card px-6 py-3 rounded-full">
+            <Code className="h-5 w-5 text-purple-400" />
+            <span className="text-white font-medium">{projects.length} Featured Projects</span>
           </div>
         </div>
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
+          {projects.map((project, index) => (
             <div
               key={project.title}
               className="group glass-card rounded-2xl overflow-hidden hover-lift transition-all duration-500 slide-up"
